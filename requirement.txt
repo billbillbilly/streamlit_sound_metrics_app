@@ -1,3 +1,4 @@
 soundscapy[audio]
 acoustic_toolbox
 streamlit
+tqdm
