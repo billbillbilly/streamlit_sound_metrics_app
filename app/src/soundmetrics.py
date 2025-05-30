@@ -8,19 +8,14 @@ def res_to_df(res):
 def wavMetrics(wav):
     warnings.filterwarnings("ignore")
     s = Signal.from_wav(wav)
-    df1 = sa.metrics.acoustics_metric_2ch(s, 'LAeq', as_df=True)
-    df1 = res_to_df(df1)
-    df2 = sa.metrics.maad_metric_2ch(s, "all_spectral_alpha_indices", as_df=True)
-    df2 = res_to_df(df2)
-    out = pd.concat([df1, df2], axis=1)
-    # sa.metrics.mosqito_metric_2ch(s, "loudness_zwtv")
-    return out
-
-def wavMetrics_(wav):
-    warnings.filterwarnings("ignore")
-    s = Signal.from_wav(wav)
-    df1 = sa.metrics.acoustics_metric_1ch(s, 'LAeq', as_df=True)
-    df2 = sa.metrics.maad_metric_1ch(s, "all_spectral_alpha_indices", as_df=True)
+    if s.shape[0] == 2:
+        df1 = sa.metrics.acoustics_metric_2ch(s, 'LAeq', as_df=True)
+        df2 = sa.metrics.maad_metric_2ch(s, "all_spectral_alpha_indices", as_df=True)
+        df1 = res_to_df(df1)
+        df2 = res_to_df(df2)
+    elif s.shape[0] == 1:
+        df1 = sa.metrics.acoustics_metric_1ch(s, 'LAeq', as_df=True)
+        df2 = sa.metrics.maad_metric_1ch(s, "all_spectral_alpha_indices", as_df=True)
     out = pd.concat([df1, df2], axis=1)
     # sa.metrics.mosqito_metric_2ch(s, "loudness_zwtv")
     return out
