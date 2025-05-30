@@ -2,20 +2,8 @@ import streamlit as st
 import pandas as pd
 from tqdm import tqdm
 import src.soundmetrics as soundmetrics
-import plotly.figure_factory as ff
 import plotly.graph_objects as go
 import os
-
-# def plot_metrics(df):
-#     """Plot audio metrics."""
-#     metrics = df.columns.tolist()
-#     metrics.pop(-1)
-#     hist_data = [df[metrics[i]].tolist() for i in range(len(metrics))]
-
-#     if not hist_data:
-#         st.warning("No metrics available to plot.")
-#         return None
-#     return ff.create_distplot(hist_data, metrics, bin_size=0.2, show_hist=False, show_rug=False)
 
 def plot_metrics(df):
     """Plot audio metrics over index."""
@@ -34,7 +22,7 @@ def plot_metrics(df):
         ))
 
     fig.update_layout(
-        title="Audio Metrics Over Index",
+        title="Audio Metrics",
         xaxis_title="Audio File",
         yaxis_title="Metric Value",
         template="plotly_dark",
