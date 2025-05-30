@@ -9,6 +9,9 @@ It computes metrics like LAeq and spectral alpha indices.
 1. Set loacal directory/ Upload one or more WAV files.
 2. Wait for the extraction to complete.
 3. Download the results as a CSV file.
+            
+##### note:
+To use loacal directory, you need run the app in a local environment.
 
 ### Reference:
 Mitchell, A., Aletta, F., & Kang, J. (2022). How to analyse and represent quantitative soundscape data. JASA Express Letters, 2, 37201. https://doi.org/10.1121/10.0009794
