@@ -3,7 +3,7 @@ import streamlit as st
 st.header("About")
 st.markdown("""
 This app extracts audio metrics from WAV files using the `soundscapy` python library (Mitchell et al., 2022).
-It computes metrics like LAeq and spectral alpha indices.
+It computes metrics like LAeq.
 
 ### Instructions:
 1. Set loacal directory/ Upload one or more WAV files.

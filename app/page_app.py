@@ -8,7 +8,6 @@ import os
 def plot_metrics(df):
     """Plot audio metrics over index."""
     metrics = df.columns.tolist()
-    metrics.pop(0)
     metrics.pop(-1)
 
     fig = go.Figure()
@@ -27,7 +26,7 @@ def plot_metrics(df):
         yaxis_title="Metric Value",
         template="plotly_dark",
         xaxis=dict(
-            tickangle=90  # or 90, -45, etc.
+            tickangle=90  # or 45, -45, etc.
         ),
     )
 
@@ -63,6 +62,11 @@ with tab_dir_path:
                         else:
                             results = pd.concat([results, result])
                             results = results.reset_index()
+                            results.pop('index')
+                            try:
+                                results.pop('level_0')
+                            except KeyError:
+                                pass
                     except Exception as e:
                         st.warning(f"Failed to process {f_name}: {e}")
 
@@ -102,6 +106,11 @@ with tab_upload_path:
                     else:
                         results = pd.concat([results, result])
                         results = results.reset_index()
+                        results.pop('index')
+                        try:
+                            results.pop('level_0')
+                        except KeyError:
+                            pass
                     os.remove(file_name)
                 except Exception as e:
                     st.warning(f"Failed to process {file.name}: {e}")
