@@ -33,10 +33,10 @@ def plot_metrics(df):
 
     return fig
 
-tab_dir_path, tab_upload_path = st.tabs(
+tab_upload_path, tab_dir_path = st.tabs(
     [
+        "Upload Audio Files", 
         "Load Audio Directory",
-        "Upload Audio Files" 
     ]
 )
 

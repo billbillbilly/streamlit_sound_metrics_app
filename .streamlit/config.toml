@@ -1,5 +1,5 @@
 [server]
-maxMessageSize = 500
+maxMessageSize = 1000
 
 [[theme.fontFaces]]
 family = "Quicksand"
